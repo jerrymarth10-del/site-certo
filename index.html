@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preparatório Concurso Ji-Paraná | Consulplan</title>
+  <meta name="description" content="Preparatório completo para o concurso de Ji-Paraná com foco na banca Consulplan. Mapas mentais, questões comentadas, simulados específicos e a lógica dos aprovados por apenas R$75." />
+  <style>
+    :root {
+      --bg: #081226;
+      --bg-soft: #0f1d38;
+      --card: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.12);
+      --text: #f7f8fb;
+      --muted: #c9d2e3;
+      --primary: #ffd34d;
+      --primary-dark: #e6b800;
+      --accent: #2dd4bf;
+      --danger: #ff7a7a;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 20px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(45,212,191,0.12), transparent 25%),
+        radial-gradient(circle at top right, rgba(255,211,77,0.12), transparent 22%),
+        linear-gradient(180deg, #081226 0%, #0a1730 40%, #081226 100%);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    .hero {
+      padding: 28px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 0 28px;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: .3px;
+    }
+
+    .brand span { color: var(--primary); }
+
+    .cta-mini {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 14px;
+      font-weight: 700;
+      transition: .25s ease;
+    }
+
+    .cta-mini:hover { background: rgba(255,255,255,0.12); }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 18px 0 18px;
+      font-size: clamp(36px, 5vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -1.2px;
+    }
+
+    .hero h1 .highlight { color: var(--primary); }
+
+    .subtitle {
+      font-size: clamp(17px, 2vw, 22px);
+      color: var(--muted);
+      max-width: 740px;
+      margin: 0 0 26px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0 0 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-points li,
+    .feature-list li,
+    .bonus-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 14px 14px;
+      color: var(--text);
+    }
+
+    .check {
+      min-width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      background: rgba(45,212,191,0.18);
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 58px;
+      padding: 16px 28px;
+      border-radius: 16px;
+      font-weight: 800;
+      font-size: 16px;
+      transition: transform .2s ease, box-shadow .25s ease, background .25s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #101010;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.07);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: none;
+    }
+
+    .trust {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .price-tag {
+      display: inline-block;
+      background: rgba(255,211,77,0.12);
+      border: 1px solid rgba(255,211,77,0.24);
+      color: var(--primary);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .old-price {
+      color: #98a6c4;
+      text-decoration: line-through;
+      font-size: 18px;
+    }
+
+    .price {
+      font-size: clamp(42px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 1;
+      margin: 6px 0;
+      color: var(--primary);
+    }
+
+    .price small {
+      font-size: 18px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .urgency {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--danger);
+      background: rgba(255,122,122,0.08);
+      border-radius: 12px;
+      color: #ffe0e0;
+      font-size: 15px;
+    }
+
+    section { padding: 70px 0; }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.1;
+      margin: 0 0 14px;
+      letter-spacing: -0.8px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin: 0 auto 34px;
+      max-width: 760px;
+      font-size: 18px;
+    }
+
+    .center { text-align: center; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(255,211,77,0.12);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .feature-list,
+    .bonus-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .testimonial {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .stars {
+      color: var(--primary);
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .testimonial p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .testimonial strong { font-size: 15px; }
+
+    .guarantee {
+      border: 1px solid rgba(45,212,191,0.2);
+      background: rgba(45,212,191,0.08);
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    details {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .final-cta {
+      padding: 80px 0;
+    }
+
+    .final-box {
+      background: linear-gradient(180deg, rgba(255,211,77,0.12) 0%, rgba(255,211,77,0.05) 100%);
+      border: 1px solid rgba(255,211,77,0.22);
+      border-radius: 30px;
+      padding: 34px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .final-box h2 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+    }
+
+    .final-box p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto 22px;
+      font-size: 18px;
+    }
+
+    footer {
+      padding: 28px 0 50px;
+      color: #9eacc8;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split,
+      .features-grid,
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 18px; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .btn-primary, .btn-secondary { width: 100%; }
+      .cta-group { flex-direction: column; align-items: stretch; }
+      .hero-card, .card, .testimonial, .final-box { padding: 20px; }
+      .section-subtitle { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">Aprovação <span>Consulplan</span></div>
+        <a class="cta-mini" href="#comprar">Garantir acesso por R$75</a>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <span class="badge">🔥 Preparatório completo • Ji-Paraná • Banca Consulplan</span>
+          <h1>Gabarite o concurso de <span class="highlight">Ji-Paraná</span> com um preparatório completo por apenas <span class="highlight">R$75</span></h1>
+          <p class="subtitle">Tenha acesso a mapas mentais, questões comentadas, simulados específicos da banca Consulplan, macetes práticos e a lógica dos aprovados para estudar com estratégia e sair na frente.</p>
+
+          <ul class="hero-points">
+            <li><span class="check">✓</span><span>Mapas mentais para memorizar mais rápido</span></li>
+            <li><span class="check">✓</span><span>Questões comentadas da banca Consulplan</span></li>
+            <li><span class="check">✓</span><span>Simulados específicos para o estilo da prova</span></li>
+            <li><span class="check">✓</span><span>Macetes e atalhos para ganhar pontos</span></li>
+          </ul>
+
+          <div class="cta-group">
+            <a class="btn-primary" href="https://mpago.la/2jMYMsi" target="_blank" rel="noopener noreferrer">QUERO COMEÇAR AGORA</a>
+            <a class="btn-secondary" href="#beneficios">Ver tudo o que vou receber</a>
+          </div>
+
+          <div class="trust">✅ Acesso imediato após a compra • ✅ Conteúdo direto ao ponto • ✅ Ideal para quem quer resultado rápido</div>
+        </div>
+
+        <aside class="hero-card" id="comprar">
+          <div class="price-tag">OFERTA PROMOCIONAL POR TEMPO LIMITADO</div>
+          <div class="old-price">De R$147,00</div>
+          <div class="price">R$75 <small>à vista</small></div>
+          <p style="color: var(--muted); margin: 10px 0 0;">Preparatório completo com foco total na banca Consulplan e nos assuntos que mais podem fazer diferença na sua nota.</p>
+
+          <ul class="bonus-list" style="margin-top: 20px;">
+            <li><span class="check">✓</span><span>Acesso ao conteúdo completo imediatamente</span></li>
+            <li><span class="check">✓</span><span>Estratégia de estudo com a lógica dos aprovados</span></li>
+            <li><span class="check">✓</span><span>Revisão inteligente para aumentar retenção</span></li>
+          </ul>
+
+          <div class="urgency">
+            ⚠️ Atenção: esse valor promocional pode sair do ar a qualquer momento. Garanta agora antes da mudança de lote.
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="beneficios">
+      <div class="container center">
+        <h2 class="section-title">O que faz esse preparatório ser diferente?</h2>
+        <p class="section-subtitle">Você não precisa estudar de forma aleatória. Aqui, o foco é treinar do jeito certo, com inteligência, repetição estratégica e adaptação ao estilo da banca Consulplan.</p>
+      </div>
+
+      <div class="container features-grid">
+        <div class="card">
+          <div class="icon">🧠</div>
+          <h3>Mapas mentais prontos</h3>
+          <p>Resumos visuais para acelerar a memorização, revisar com mais rapidez e fixar os assuntos que mais caem.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">📝</div>
+          <h3>Questões comentadas</h3>
+          <p>Entenda a lógica de cobrança da Consulplan e descubra como a banca gosta de confundir o candidato.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Simulados específicos</h3>
+          <p>Treinos montados para você sentir a prova na prática e chegar mais confiante no dia decisivo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container split">
+        <div class="card">
+          <h2 class="section-title" style="font-size: clamp(26px, 3vw, 38px);">Você vai receber:</h2>
+          <ul class="feature-list">
+            <li><span class="check">✓</span><span><strong>Preparatório completo por apenas R$75</strong>, com excelente custo-benefício para quem quer começar agora</span></li>
+            <li><span class="check">✓</span><span><strong>Mapas mentais estratégicos</strong> para revisar os tópicos com muito mais velocidade</span></li>
+            <li><span class="check">✓</span><span><strong>Questões comentadas da banca Consulplan</strong> para aprender na prática como a prova é construída</span></li>
+            <li><span class="check">✓</span><span><strong>Simulados específicos</strong> para medir evolução e identificar pontos fracos antes da prova</span></li>
+            <li><span class="check">✓</span><span><strong>Lógica dos aprovados</strong> para estudar com método, sem desperdiçar tempo</span></li>
+            <li><span class="check">✓</span><span><strong>Macetes e atalhos</strong> para aumentar sua precisão e ganhar tempo nas questões</span></li>
+          </ul>
+        </div>
+
+        <div class="card guarantee">
+          <h2 class="section-title" style="font-size: clamp(26px, 3vw, 38px);">Para quem é esse material?</h2>
+          <ul class="feature-list">
+            <li><span class="check">✓</span><span>Para quem vai prestar o concurso de Ji-Paraná e quer uma preparação objetiva</span></li>
+            <li><span class="check">✓</span><span>Para quem trabalha, tem pouco tempo e precisa de direção clara</span></li>
+            <li><span class="check">✓</span><span>Para quem está cansado de estudar sem estratégia e sem saber por onde começar</span></li>
+            <li><span class="check">✓</span><span>Para quem quer entender a banca Consulplan e não ser pego de surpresa</span></li>
+            <li><span class="check">✓</span><span>Para quem quer estudar com mais segurança, clareza e foco nos pontos que geram nota</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container center">
+        <h2 class="section-title">Quem estuda do jeito certo sai na frente</h2>
+        <p class="section-subtitle">A diferença entre quem só tenta e quem realmente evolui está no método. Veja o que esse formato de estudo entrega na prática.</p>
+      </div>
+
+      <div class="container testimonials">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>“Os mapas mentais e os macetes mudaram meu jeito de estudar. Passei a revisar mais rápido e errar menos.”</p>
+          <strong>Aluno de Rondônia</strong>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>“As questões comentadas da Consulplan me ajudaram a entender a banca de verdade. Isso faz muita diferença.”</p>
+          <strong>Candidato ao concurso</strong>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>“Achei um preparatório direto, sem enrolação e com valor acessível. Excelente para quem quer começar logo.”</p>
+          <strong>Aluno do preparatório</strong>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container split">
+        <div class="card">
+          <h2 class="section-title" style="font-size: clamp(26px, 3vw, 38px);">Bônus exclusivos</h2>
+          <ul class="bonus-list">
+            <li><span class="check">✓</span><span>Lista dos assuntos com maior chance de cobrança</span></li>
+            <li><span class="check">✓</span><span>Estratégia de revisão inteligente para fixação</span></li>
+            <li><span class="check">✓</span><span>Técnicas para render mais mesmo com pouco tempo</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2 class="section-title" style="font-size: clamp(26px, 3vw, 38px);">Perguntas frequentes</h2>
+          <div class="faq">
+            <details>
+              <summary>O acesso é liberado na hora?</summary>
+              <p>Sim. Assim que o pagamento for confirmado, o acesso pode ser enviado imediatamente conforme a sua estrutura de entrega.</p>
+            </details>
+            <details>
+              <summary>Esse material serve para a banca Consulplan?</summary>
+              <p>Sim. A proposta da página está totalmente posicionada para quem quer estudar com foco na lógica de cobrança da Consulplan.</p>
+            </details>
+            <details>
+              <summary>É indicado para quem está começando agora?</summary>
+              <p>Sim. O material foi descrito para ser direto, estratégico e ideal para quem quer sair do zero com mais clareza.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <div class="final-box">
+          <h2>Garanta agora seu preparatório completo e comece hoje sua preparação</h2>
+          <p>Por apenas <strong>R$75</strong>, você recebe um material pensado para quem quer estudar com foco, entender a banca Consulplan e aumentar suas chances de aprovação no concurso de Ji-Paraná.</p>
+          <div class="cta-group" style="justify-content:center; margin-bottom: 12px;">
+            <a class="btn-primary" href="https://mpago.la/2jMYMsi" target="_blank" rel="noopener noreferrer">QUERO GARANTIR MEU ACESSO</a>
+          </div>
+          <div class="trust">⏳ Oferta promocional por tempo limitado • 🔒 Compra segura • 📚 Acesso ao conteúdo completo</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Preparatório Concurso Ji-Paraná • Página criada para conversão<br />
+      Link de pagamento e WhatsApp já configurados para publicação.
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5569993519150" target="_blank" rel="noopener noreferrer" style="position: fixed; right: 18px; bottom: 18px; z-index: 999; display: inline-flex; align-items: center; justify-content: center; min-width: 58px; height: 58px; padding: 0 18px; border-radius: 999px; background: #25D366; color: #ffffff; font-weight: 800; box-shadow: 0 20px 40px rgba(0,0,0,0.25); border: none;">WhatsApp</a>
+</body>
+</html>
