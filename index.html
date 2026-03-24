@@ -621,23 +621,99 @@
   WhatsApp
 </a>
 
-<!-- BOTÃO TOPO (OFERTA) -->
-<a href="https://wa.me/5569993539150?text=Quero%20garantir%20minha%20apostila%20agora" 
-   target="_blank"
-   style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-   z-index: 9999; background: red; color: white; padding: 15px 25px;
-   border-radius: 50px; font-weight: bold; font-size: 16px;
-   box-shadow: 0 10px 30px rgba(0,0,0,0.4); animation: pulse 1.5s infinite;">
-   🚨 OFERTA LIMITADA - GARANTIR AGORA
-</a>
-
 <style>
-@keyframes pulse {
+.kiwify-topo {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: min(92%, 420px);
+  background: linear-gradient(135deg, #0f1d38, #081226);
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  animation: pulseBox 2s infinite;
+}
+
+.kiwify-topo strong {
+  display: block;
+  font-size: 14px;
+  color: #ffd34d;
+  margin-bottom: 6px;
+}
+
+.kiwify-topo span {
+  font-size: 13px;
+  color: #c9d2e3;
+}
+
+.contador {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ff4d4d;
+}
+
+.kiwify-btn {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(180deg, #ffd34d, #e6b800);
+  color: #111;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 900;
+  font-size: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: 0.2s;
+}
+
+.kiwify-btn:hover {
+  transform: scale(1.03);
+}
+
+@keyframes pulseBox {
   0% { transform: translateX(-50%) scale(1); }
-  50% { transform: translateX(-50%) scale(1.05); }
+  50% { transform: translateX(-50%) scale(1.03); }
   100% { transform: translateX(-50%) scale(1); }
 }
 </style>
 
-</body>
-</html>
+<div class="kiwify-topo">
+  <strong>🔥 Oferta por tempo limitado</strong>
+  <span>Preparatório completo por apenas R$75</span>
+
+  <div class="contador" id="contador">⏳ Restam 10:00</div>
+
+  <a href="https://wa.me/5569993539150?text=Quero%20garantir%20minha%20apostila%20agora"
+     target="_blank"
+     class="kiwify-btn">
+     🚀 GARANTIR AGORA
+  </a>
+</div>
+
+<script>
+let tempo = 10 * 60; // 10 minutos
+const contador = document.getElementById("contador");
+
+function atualizarContador() {
+  const minutos = Math.floor(tempo / 60);
+  const segundos = tempo % 60;
+
+  contador.textContent = "⏳ Restam " +
+    String(minutos).padStart(2, '0') + ":" +
+    String(segundos).padStart(2, '0');
+
+  if (tempo > 0) {
+    tempo--;
+  } else {
+    tempo = 10 * 60; // reinicia (loop)
+  }
+}
+
+atualizarContador();
+setInterval(atualizarContador, 1000);
+</script>
