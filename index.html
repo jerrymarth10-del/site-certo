@@ -682,38 +682,57 @@
 }
 </style>
 
-<div class="kiwify-topo">
-  <strong>🔥 Oferta por tempo limitado</strong>
-  <span>Preparatório completo por apenas R$75</span>
-
-  <div class="contador" id="contador">⏳ Restam 10:00</div>
-
-  <a href="https://wa.me/5569993539150?text=Quero%20garantir%20minha%20apostila%20agora"
-     target="_blank"
-     class="kiwify-btn">
-     🚀 GARANTIR AGORA
-  </a>
+<div class="barra-promocao" id="barraPromocao">
+  ⚠️ PROMOÇÃO VÁLIDA ATÉ <span id="dataPromocao"></span> ! ⚠️
 </div>
 
-<script>
-let tempo = 10 * 60; // 10 minutos
-const contador = document.getElementById("contador");
-
-function atualizarContador() {
-  const minutos = Math.floor(tempo / 60);
-  const segundos = tempo % 60;
-
-  contador.textContent = "⏳ Restam " +
-    String(minutos).padStart(2, '0') + ":" +
-    String(segundos).padStart(2, '0');
-
-  if (tempo > 0) {
-    tempo--;
-  } else {
-    tempo = 10 * 60; // reinicia (loop)
+<style>
+  .barra-promocao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ff0000;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 900;
+    font-size: 20px;
+    padding: 16px 12px;
+    z-index: 10000;
+    text-transform: uppercase;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+    font-family: Arial, Helvetica, sans-serif;
   }
-}
 
-atualizarContador();
-setInterval(atualizarContador, 1000);
+  @media (max-width: 768px) {
+    .barra-promocao {
+      font-size: 15px;
+      padding: 12px 10px;
+      line-height: 1.35;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const hoje = new Date();
+
+    const diasSemana = [
+      "DOMINGO",
+      "SEGUNDA-FEIRA",
+      "TERÇA-FEIRA",
+      "QUARTA-FEIRA",
+      "QUINTA-FEIRA",
+      "SEXTA-FEIRA",
+      "SÁBADO"
+    ];
+
+    const diaSemana = diasSemana[hoje.getDay()];
+    const dia = String(hoje.getDate()).padStart(2, "0");
+    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+    const ano = hoje.getFullYear();
+
+    document.getElementById("dataPromocao").textContent =
+      diaSemana + " DIA " + dia + "/" + mes + "/" + ano;
+  })();
 </script>
